@@ -30,7 +30,7 @@ function handleError (error){
   return null;
 }
 
-function getUserData (player){
+export function getUserData (player){
   return axios.all([
     getProfile(player),
     getRepos(player)
@@ -51,7 +51,6 @@ function sortPlayers(players){
   });
 }
 
-
 export function battle(players){
    return axios.all(players.map(getUserData))
    .then(sortPlayers);
@@ -66,4 +65,3 @@ export function   fetchPopularRepos(language){
       return response.data.items;
    });
 }
-
